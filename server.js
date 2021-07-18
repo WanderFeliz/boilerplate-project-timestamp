@@ -28,7 +28,6 @@ app.get("/api/:date", function (req, res) {
   let {date} = req.params;
   let dateVal;
   let error = null;
-  console.log(date)
   if (date == null){
     error = "Invalid Date";
   }
