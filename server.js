@@ -28,10 +28,7 @@ app.get("/api/:date", function (req, res) {
   let {date} = req.params;
   let dateVal;
   let error = null;
-  if (date == null){
-    error = "Invalid Date";
-  }
-  else if (!date.trim()) {
+  if (!date.trim()) {
     dateVal = Date.now();
   } else {
     dateVal = new Date(date);
@@ -42,7 +39,7 @@ app.get("/api/:date", function (req, res) {
     error = "Invalid Date";
   }
   
-  let utcDate = new Date();
+  let utcDate = new Date(Number(date));
   let unixDate = "";
   unixDate = Date.parse(date)
   if (isNaN(unixDate)){
